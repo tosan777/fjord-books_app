@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            title:
+              blank: "Title can't be blank"
+            memo:
+              blank: "memo can't be blank"
+            author:
+              blank: "Author can't be blank"
+            picture:
+              blank: "Picture can't be blank"
+    attributes:
+      book:
+        title: "Title"
+        memo: "Memo"
+        author: "Author"
+        picture: "Picture"

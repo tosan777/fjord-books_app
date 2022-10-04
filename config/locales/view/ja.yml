@@ -1,0 +1,21 @@
+ja:
+  books:
+    defaults:
+      title: 'タイトル'
+      memo: 'メモ'
+      author: '著者'
+      picture: '画像'
+      show: '詳細'
+      edit: '編集'
+      destroy: '削除'
+      back: '戻る'
+      new_memo: '新規作成'
+    index:
+      title: 'メモ一覧'
+    edit:
+      title: 'メモを編集する'
+  notice:
+    created: 'メモを新規作成しました'
+    update: 'メモを更新しました'
+    data: '本当に削除しますか？'
+    destroy: 'メモを削除しました'

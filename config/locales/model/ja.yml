@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            title:
+              blank: "タイトルを入力してください"
+            memo:
+              blank: "メモを入力してください"
+            author:
+              blank: "著者を入力してください"
+            picture:
+              blank: "写真を選択してください"
+    attributes:
+      book:
+        title: "タイトル"
+        memo: "メモ"
+        author: "著者"
+        picture: "写真"
