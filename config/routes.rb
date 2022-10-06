@@ -4,13 +4,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   devise_scope :user do
-    root to: 'users/sessions#new'
-    # get "user/:id", :to => "users/registrations#detail"
-    # get 'logout', to: 'users/sessions#destroy'
-    # root "users/sessions#new"
-    # get "signup", :to => "users/registrations#new"
-    # get "logout", :to => "users/sessions#destroy"
+    get "sign_up", to: "users/registrations#new"
+    get "login", to: "users/sessions#new"
+    delete "logout", to: "users/sessions#destroy"
+    get "edit", to: "users/registrations#edit"
   end
   resources :books
+  root  to: 'users#show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
