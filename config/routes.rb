@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     get "edit", to: "users/registrations#edit"
   end
   resources :books
-  root  to: 'users#show'
+  root 'my_profile#show'
+  get  'users/show'
+  get  'users', to: 'users#index'
+  # ユーザー詳細ページへのルーティング
+  match 'users/:id' => 'users#show', :via => :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

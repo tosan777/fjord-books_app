@@ -1,0 +1,11 @@
+<h1>ユーザー一覧</h1>
+
+<% @user.each do |user| %>
+  <ul class="user-list">
+    <a href="/users/<%= user.id %>" class="user-link">
+      <li class="user-item">
+        <%= user.email %>
+      </li>
+    </a>
+  </ul>
+<% end %>
