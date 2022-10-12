@@ -1,3 +1,5 @@
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<%= link_to 'ユーザー一覧', users_path %>
 <h1>ユーザー一覧</h1>
 
 <% @user.each do |user| %>
@@ -9,3 +11,5 @@
     </a>
   </ul>
 <% end %>
+
+<%= paginate @user %>
