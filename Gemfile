@@ -43,6 +43,8 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  # ブラウザ上で送信済みのメールアドレスを確認することができるgem
+  gem 'letter_opener_web'
 end
 
 group :test do
