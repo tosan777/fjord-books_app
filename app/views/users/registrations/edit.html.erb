@@ -9,12 +9,6 @@
   </div>
 
   <div class="field">
-    <%= f.label :current_password %>
-    <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="field">
     <%= f.label :post_code %><br />
     <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %>
   </div>
@@ -27,6 +21,20 @@
   <div class="field">
     <%= f.label :self_introduction %><br />
     <%= f.text_area :self_introduction, autofocus: true, autocomplete: "self_introduction" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :encrypted_password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">

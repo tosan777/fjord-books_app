@@ -51,6 +51,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [:email, :encrypted_password, :post_code, :address, :self_introduction])
   end
 
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
+  # def update_resource(resource, params)
+  #   if params[:password].present? && params[:password_confirmation].present?
+  #     resource.update(params)
+  #   else
+  #     resource.update_without_password(params)
+  #   end
+  # end
+
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
