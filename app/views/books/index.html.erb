@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= t('books.index.title') %></h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
@@ -22,7 +22,7 @@
         <td><%= book.picture %></td>
         <td><%= link_to t('books.defaults.show'), book %></td>
         <td><%= link_to t('books.defaults.edit'), edit_book_path(book) %></td>
-        <td><%= link_to t('books.defaults.destroy'), book, method: :delete, data: { confirm: I18n.t("notice.data") } %></td>
+        <td><%= link_to t('books.defaults.destroy'), book, method: :delete, data: { confirm: I18n.t("notice.data", name: "本") } %></td>
       </tr>
     <% end %>
   </tbody>

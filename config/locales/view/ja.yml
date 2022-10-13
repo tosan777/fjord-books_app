@@ -11,11 +11,11 @@ ja:
       back: '戻る'
       new_memo: '新規作成'
     index:
-      title: 'メモ一覧'
+      title: '本一覧'
     edit:
-      title: 'メモを編集する'
+      title: '本を編集する'
   notice:
-    created: 'メモを新規作成しました'
-    update: 'メモを更新しました'
-    data: '本当に削除しますか？'
-    destroy: 'メモを削除しました'
+    created: "%{name}新規作成しました"
+    update: "%{name}を更新しました"
+    data: "%{name}を削除しますか？"
+    destroy: "%{name}を削除しました"

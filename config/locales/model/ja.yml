@@ -15,6 +15,6 @@ ja:
     attributes:
       book:
         title: "タイトル"
-        memo: "メモ"
+        memo: "本"
         author: "著者"
         picture: "写真"
