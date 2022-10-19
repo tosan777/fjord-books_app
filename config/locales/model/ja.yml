@@ -1,4 +1,7 @@
 ja:
+  errors:
+    messages:
+      not_saved: '正しく新規登録情報が記入されていません'
   activerecord:
     attributes:
       user:
@@ -7,6 +10,7 @@ ja:
         address: '住所'
         self_introduction: '自己紹介'
         encrypted_password: 'パスワード'
+        password: 'パスワード'
         password_confirmation: 'パスワードの確認'
   devise:
     passwords:
