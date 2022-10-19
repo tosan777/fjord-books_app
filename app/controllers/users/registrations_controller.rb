@@ -54,6 +54,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update_resource(resource, params)
     resource.update_without_current_password(params)
   end
+
+  def after_update_path_for(resource)
+    users_my_profile_path
+  end
   # def update_resource(resource, params)
   #   if params[:password].present? && params[:password_confirmation].present?
   #     resource.update(params)

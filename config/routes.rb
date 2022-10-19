@@ -6,17 +6,19 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get "users/sign_up", to: "users/registrations#new"
+    post "users/sign_up", to: "users/registrations#create"
     get "users/login", to: "users/sessions#new"
     post "users/login", to: "users/sessions#create"
     delete "users/logout", to: "users/sessions#destroy"
     get "users/my_profile/edit", to: "users/registrations#edit"
+    patch "users/my_profile/edit", to: "users/registrations#update"
   end
   # letter opener web 用のルーティング
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
   resources :books
-  get 'users/myprofile', to: 'my_profile#show'
+  get 'users/my_profile', to: 'my_profile#show'
   get  'users/show'
   get  'users', to: 'users#index'
   # ユーザー詳細ページへのルーティング

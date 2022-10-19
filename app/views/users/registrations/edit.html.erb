@@ -1,6 +1,6 @@
 <h2><%= t('.title') %></h2>
 
-<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+<%= form_with model: @user, url: users_my_profile_edit_path, local: true do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
