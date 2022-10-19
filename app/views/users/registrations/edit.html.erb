@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t('.title') %></h2>
 
 <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -24,11 +24,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :encrypted_password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :encrypted_password %> <i><%= t('.notice') %></i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= t('users.defaults.characters') %></em>
     <% end %>
   </div>
 
@@ -38,12 +38,10 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "更新する" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<p><%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: I18n.t("notice.confirm") }, method: :delete %></p>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to t('.back'), :back %>

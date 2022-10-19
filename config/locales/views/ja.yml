@@ -1,0 +1,25 @@
+ja:
+  users:
+    defaults:
+      login: 'ログイン'
+      characters: 'パスワードは6文字以上です'
+    passwords:
+      new:
+        title: 'パスワードリセットページ'
+      edit:
+        title: 'パスワードリセットページ'
+    registrations:
+      edit:
+        title: 'ユーザー情報編集ページ'
+        notice: '変更しない場合は空白にしてください'
+        back: '戻る'
+        account_delete: 'アカウントの削除'
+      new:
+        title: '新規登録'
+        create: '登録する'
+    shared:
+      signup: '新規登録'
+      login: 'ログイン'
+      forgot: 'パスワードを忘れた方はこちら'
+  notice:
+    confirm: '本当にアカウントを削除しますか？'

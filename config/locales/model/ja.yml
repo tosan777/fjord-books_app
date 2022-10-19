@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: 'メールアドレス'
+        post_code: '郵便番号'
+        address: '住所'
+        self_introduction: '自己紹介'
+        encrypted_password: 'パスワード'
+        password_confirmation: 'パスワードの確認'
+  devise:
+    passwords:
+      user:
+        updated: 'パスワードを更新しました'
+        send_instructions: 'メールアドレスにパスワードリセットメールを送信しました'
+    registrations:
+      user:
+        updated: '更新しました'
+        signed_up: '新規登録しました'
+        destroyed: 'アカウントを削除しました'
+    sessions:
+      user:
+        signed_out: 'ログアウトしました'
+        signed_in: 'ログインしました'
+    failure:
+      user:
+        invalid: 'ログイン情報を正しく入力してください'
