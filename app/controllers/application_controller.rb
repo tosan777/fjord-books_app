@@ -3,11 +3,11 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
-  def after_sign_in_path_for(resource)
-    users_myprofile_path
+  def after_sign_in_path_for(_resource)
+    users_my_profile_path
   end
 
-  def after_sign_out_path_for(resource)
+  def after_sign_out_path_for(_resource)
     users_login_path
   end
 end

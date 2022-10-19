@@ -63,7 +63,7 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem 'carrierwave'
-gem 'kaminari'
 gem 'devise'
+gem 'kaminari'
 gem 'pry'
 gem 'rails-i18n'

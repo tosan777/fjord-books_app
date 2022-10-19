@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
     @user = User.where.not(id: current_user.id).order(:remember_created_at, :id).page(params[:page]).per(3)

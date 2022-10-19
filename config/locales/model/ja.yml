@@ -29,3 +29,4 @@ ja:
     failure:
       user:
         invalid: 'ログイン情報を正しく入力してください'
+        not_found_in_database: 'ユーザーが存在しません'
