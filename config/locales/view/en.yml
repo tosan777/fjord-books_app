@@ -1,0 +1,21 @@
+en:
+  books:
+    defaults:
+      title: 'Title'
+      memo: 'Memo'
+      author: 'Author'
+      picture: 'Picture'
+      show: 'Show'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      back: 'Back'
+      new_memo: 'New Memo'
+    index:
+      title: 'Memo List'
+    edit:
+      title: 'Edit page'
+  notice:
+    create: 'Create Success'
+    update: 'Update Success'
+    data: 'Are you sure?'
+    destroy: 'Destroy Success'
