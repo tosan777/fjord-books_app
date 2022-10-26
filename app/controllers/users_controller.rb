@@ -7,5 +7,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @followings = @user.followings
+    @followers = @user.followers
+  end
+
+  # フォローワー一覧
+  def follows
+    user = User.find(params[:id])
+    @users = user.followings.page(params[:page]).per(3).reverse_order
+  end
+
+  # フォロー一覧
+  def followers
+    user = User.find(params[:id])
+    @users = user.followers.page(params[:page]).per(3).reverse_order
   end
 end

@@ -1,0 +1,8 @@
+<h1>フォロー一覧</h1>
+<% @users.each do |user| %>
+  <div class="one-post card w-100">
+    <%= link_to user_path(user) do %>
+      <p class="caption h4"><%= user.name %></p>
+    <% end %>
+  </div>
+<% end %>
