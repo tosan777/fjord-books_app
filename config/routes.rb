@@ -1,27 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
+    passwords: 'users/passwords',
     registrations: 'users/registrations',
-    sessions: 'users/sessions',
-    passwords: 'users/passwords'
+    sessions: 'users/sessions'
   }
-  devise_scope :user do
-    get "users/sign_up", to: "users/registrations#new"
-    post "users/sign_up", to: "users/registrations#create"
-    get "users/login", to: "users/sessions#new"
-    post "users/login", to: "users/sessions#create"
-    delete "users/logout", to: "users/sessions#destroy"
-    get "users/my_profile/edit", to: "users/registrations#edit"
-    patch "users/my_profile/edit", to: "users/registrations#update"
-  end
+  resources :users, only:[:index, :show,]
+  resources :books
   # letter opener web 用のルーティング
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
   end
-  resources :books
-  get 'users/my_profile', to: 'my_profile#show'
-  get  'users/show'
-  get  'users', to: 'users#index'
-  # ユーザー詳細ページへのルーティング
-  match 'users/:id' => 'users#show', :via => :get
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,15 +1,15 @@
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to 'ユーザー一覧', users_path %>
-<%= link_to 'プロフィール', users_my_profile_path %>
-<h1>ユーザー一覧</h1>
+<%= link_to t('users.defaults.sign_out'), destroy_user_session_path, method: :delete %>
+<%= link_to t('users.defaults.user_list'), users_path %>
+<%= link_to t('users.defaults.profile'), user_path(current_user.id) %>
+<h1><%= t('users.defaults.user_list') %></h1>
 
 <% @user.each do |user| %>
   <ul class="user-list">
-    <a href="/users/<%= user.id %>" class="user-link">
+    <%= link_to user_path(user.id) do %>
       <li class="user-item">
         <%= user.email %>
       </li>
-    </a>
+    <% end %>
   </ul>
 <% end %>
 

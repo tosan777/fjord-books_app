@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(_resource)
-    users_my_profile_path
+    user_path(resource)
   end
 
   def after_sign_out_path_for(_resource)
-    users_login_path
+    user_session_path
   end
 end

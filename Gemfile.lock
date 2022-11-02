@@ -95,7 +95,6 @@ GEM
       mini_mime (>= 0.1.3)
       ssrf_filter (~> 1.0)
     childprocess (3.0.0)
-    coderay (1.1.3)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     devise (4.8.1)
@@ -104,6 +103,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.2)
+      devise (>= 4.8.0)
     digest (3.1.0)
     erb_lint (0.1.3)
       activesupport
@@ -191,9 +192,6 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.1)
       ast (~> 2.4.1)
-    pry (0.14.1)
-      coderay (~> 1.1)
-      method_source (~> 1.0)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -337,6 +335,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   carrierwave
   devise
+  devise-i18n
   erb_lint
   faker
   i18n_generators
@@ -347,7 +346,6 @@ DEPENDENCIES
   net-imap
   net-pop
   net-smtp
-  pry
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)

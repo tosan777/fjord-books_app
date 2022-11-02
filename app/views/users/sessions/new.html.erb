@@ -1,18 +1,18 @@
-<h2><%= t('users.defaults.login') %></h2>
+<h2><%= t('.sign_in') %></h2>
 
-<%= form_with model: @user, url: users_login_path, local: true do |f| %>
+<%= form_with model: @user, url: user_session_path, local: true do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "on" %>
   </div>
 
   <div class="field">
-    <%= f.label :encrypted_password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </div>
 
   <div class="actions">
-    <%= f.submit t('users.defaults.login') %>
+    <%= f.submit t('.sign_in') %>
   </div>
 <% end %>
 
