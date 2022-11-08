@@ -1,6 +1,6 @@
 <%= link_to t('users.defaults.sign_out'), destroy_user_session_path, method: :delete %>
 <%= link_to t('users.defaults.user_list'), users_path %>
-<%= link_to t('users.defaults.profile'), user_path(current_user.id) %>
+<%= link_to t('users.defaults.profile'), user_path(current_user) %>
 
 <h1><%= t('users.defaults.profile') %></h1>
 
