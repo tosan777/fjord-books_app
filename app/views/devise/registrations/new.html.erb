@@ -1,7 +1,7 @@
 <h2><%= t('.sign_up') %></h2>
 
 <%= form_with model: @user, local: true do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -11,7 +11,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-      <em><%= t('users.shared.minimum_password_length', count: 6) %></em>
+      <em><%= t('devise.shared.minimum_password_length', count: 6) %></em>
     <% end %><br />
     <%= f.password_field :password %>
   </div>
@@ -26,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

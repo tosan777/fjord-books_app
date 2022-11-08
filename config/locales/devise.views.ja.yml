@@ -25,13 +25,7 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
-        post_code: 郵便番号
-        address: 住所
-        self_introduction: 自己紹介
-        password: パスワード
-    models:
-      user: ユーザー
-  users:
+  devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
       new:
