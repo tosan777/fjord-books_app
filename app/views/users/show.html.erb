@@ -1,9 +1,11 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 <%# フォローしていたらフォロー外すボタン、フォローしていなかったらフォローするボタンの表示 %>
-<% if current_user.following?(@user) %>
-  <%= link_to 'フォロー外す', user_follow_relationships_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
-<% else %>
-  <%= link_to 'フォローする', user_follow_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
+<% if @user != current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'フォロー外す', user_follow_relationships_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
+  <% else %>
+    <%= link_to 'フォローする', user_follow_relationships_path(@user.id), method: :POST, class:"btn-sm btn-success" %>
+  <% end %>
 <% end %>
 
 <p>
