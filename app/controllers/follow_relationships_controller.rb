@@ -1,5 +1,6 @@
-class FollowRelationshipsController < ApplicationController
+# frozen_string_literal: true
 
+class FollowRelationshipsController < ApplicationController
   # フォローするとき
   def create
     current_user.follow(params[:user_id])
@@ -11,5 +12,4 @@ class FollowRelationshipsController < ApplicationController
     current_user.unfollow(params[:user_id])
     redirect_to request.referer
   end
-
 end
