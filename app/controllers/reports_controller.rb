@@ -1,23 +1,50 @@
 class ReportsController < ApplicationController
+
   def index
+    @reports = Report.order(:id).page(params[:page])
   end
 
   def create
+    @report = Report.new(report_params)
+    @report.user_id = current_user.id
+    if @report.save
+      flash[:success] = "日報を投稿しました。"
+      redirect_to reports_path
+    else
+      render :new
+    end
   end
 
   def new
+    @report = Report.new
   end
 
   def edit
+    @report = Report.find(params[:id])
   end
 
   def show
+    @report = Report.find(params[:id])
   end
 
   def update
+    @report = Report.find(params[:id])
+    if @report.update(report_params)
+      flash[:success] = "日報の編集に成功しました。"
+      redirect_to report_path(@report)
+    end
   end
 
-  def delete
+  def destroy
+    Report.find(params[:id]).destroy
+    flash[:success] = "日報を削除しました。"
+    redirect_to reports_path
+  end
+
+  private
+
+  def report_params
+    params.require(:report).permit(:title, :text)
   end
 
 end

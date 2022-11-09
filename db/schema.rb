@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2022_11_09_011859) do
   end
 
   create_table "reports", force: :cascade do |t|
+    t.integer "user_id"
     t.string "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false

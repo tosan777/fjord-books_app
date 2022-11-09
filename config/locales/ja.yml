@@ -7,6 +7,10 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      report:
+        title: タイトル
+        text: テキスト
   date:
     abbr_day_names:
     - 日
@@ -255,3 +259,8 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  reports:
+    default:
+      title: "%{title}一覧ページ"
+      new_report: 日報作成
+

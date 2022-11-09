@@ -1,2 +1,6 @@
-<h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+<h1><%= t('reports.default.title', title: "日報詳細") %></h1>
+<% if @report.user_id == current_user.id %>
+  <%= link_to '編集する', edit_report_path %>
+<% end%>
+<h3><%= @report.title %></h2>
+<p><%= @report.text %></p>
