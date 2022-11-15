@@ -1,0 +1,14 @@
+<%= form_with model: [commentable, Comment.new] do |f| %>
+  <%= f.hidden_field :commentable_id,    value: commentable.id %>
+  <%= f.hidden_field :commentable_type,  value: commentable.class.name %>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, required: true %>
+  </div>
+
+  <div class="action">
+    <%= f.submit '送信' %>
+  </div>
+
+<% end %>

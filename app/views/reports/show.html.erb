@@ -4,3 +4,7 @@
 <% end%>
 <h3><%= @report.title %></h2>
 <p><%= @report.text %></p>
+
+<%= render 'comments/comment', comment: @comment %>
+
+<%= render 'comments/form', commentable: @report %>
