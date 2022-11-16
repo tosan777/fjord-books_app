@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  paginates_per 50
+
   has_one_attached :avatar
 
   # 命名規則以外の関連名を使用しているため、foreign_keyで指定する必要がある
