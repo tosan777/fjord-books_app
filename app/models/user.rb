@@ -22,12 +22,12 @@ class User < ApplicationRecord
 
   # ユーザーをフォローした時の処理
   def follow(user_id)
-    follower.create(followed_id: user_id)
+    follower.find_or_create_by(followed_id: user_id)
   end
 
   # ユーザーのフォローを外した時の処理
   def unfollow(user_id)
-    follower.find_by(followed_id: user_id).destroy
+    follower.find_by(followed_id: user_id)&.destroy
   end
 
   # フォローしているか判定
