@@ -1,16 +1,26 @@
-<% comment.each do |comment| %>
+<% if comment.exists? %>
 
-  <div class="comment-area">
+  <% comment.each do |comment| %>
 
-    <div class="field">
-      <strong class="comment-title"><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong>
-      <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+    <div class="comment-area">
+
+      <div class="field">
+        <strong class="comment-title"><%= comment.user.name.present? ? comment.user.name : comment.user.email %></strong>
+        <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+      </div>
+
+      <div class="comment-field">
+        <p class="comment-text"><%= comment.comment %></p>
+      </div>
+
+      <div class="field">
+        <%= link_to '削除', polymorphic_path([commentable, comment]), method: :delete %>
+        <%= link_to '削除', polymorphic_path([commentable, comment]), method: :patch %>
+      </div>
+
     </div>
 
-    <div class="comment-field">
-      <p class="comment-text"><%= comment.comment %></p>
-    </div>
-
-  </div>
-
+  <% end %>
+<% else %>
+  <h3>コメントは存在していません。</h3>
 <% end %>
