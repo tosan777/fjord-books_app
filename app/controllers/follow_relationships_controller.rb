@@ -1,23 +1,27 @@
 # frozen_string_literal: true
 
 class FollowRelationshipsController < ApplicationController
-  before_action :other_user
 
   # フォローするとき
   def create
-    current_user.follow(params[:user_id])
-    redirect_to @other_user
+    if @other_user = User.exists?(id: params[:user_id])
+      current_user.follow(params[:user_id])
+      redirect_to @other_user
+    else
+      flash[:alert] = "このユーザーは存在しません。"
+      redirect_to users_path
+    end
   end
 
   # フォロー外すとき
   def destroy
-    current_user.unfollow(params[:user_id])
-    redirect_to @other_user
+    if @other_user = User.exists?(id: params[:user_id])
+      current_user.unfollow(params[:user_id])
+      redirect_to @other_user
+    else
+      flash[:alert] = "このユーザーは存在しません。"
+      redirect_to users_path
+    end
   end
 
-  private
-
-  def other_user
-    @other_user = User.find(params[:user_id])
-  end
 end
