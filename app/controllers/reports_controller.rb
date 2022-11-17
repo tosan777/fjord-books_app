@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[edit show]
 
@@ -9,7 +11,7 @@ class ReportsController < ApplicationController
     @report = Report.new(report_params)
     @report.user_id = current_user.id
     if @report.save
-      flash[:success] = "日報を投稿しました。"
+      flash[:success] = '日報を投稿しました。'
       redirect_to reports_path
     else
       render :new
@@ -28,15 +30,15 @@ class ReportsController < ApplicationController
 
   def update
     @report = Report.find(params[:id])
-    if @report.update(report_params)
-      flash[:success] = "日報の編集に成功しました。"
-      redirect_to report_path(@report)
-    end
+    return unless @report.update(report_params)
+
+    flash[:success] = '日報の編集に成功しました。'
+    redirect_to report_path(@report)
   end
 
   def destroy
     Report.find(params[:id]).destroy
-    flash[:success] = "日報を削除しました。"
+    flash[:success] = '日報を削除しました。'
     redirect_to reports_path
   end
 
@@ -49,5 +51,4 @@ class ReportsController < ApplicationController
   def report_params
     params.require(:report).permit(:title, :text)
   end
-
 end
