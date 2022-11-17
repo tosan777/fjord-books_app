@@ -1,0 +1,27 @@
+<%= link_to t('users.defaults.sign_out'), destroy_user_session_path, method: :delete %>
+<%= link_to t('users.defaults.user_list'), users_path %>
+<%= link_to t('users.defaults.profile'), user_path(current_user) %>
+
+<h1><%= t('users.defaults.profile') %></h1>
+
+<div class="field">
+  <p class="field-title"><%= t(User.human_attribute_name(:email)) %></p>
+  <p><%= @user.email %></p>
+</div>
+
+<div class="field">
+  <p class="field-title"><%= t(User.human_attribute_name(:post_code)) %></p>
+  <p><%= @user.post_code %></p>
+</div>
+
+<div class="field">
+  <p class="field-title"><%= t(User.human_attribute_name(:address)) %></p>
+  <p><%= @user.address %></p>
+</div>
+
+<div class="field">
+  <p class="field-title"><%= t(User.human_attribute_name(:self_introduction)) %></p>
+  <p><%= @user.self_introduction %></p>
+</div>
+
+<%= link_to t('.edit_user'), edit_user_registration_path %>

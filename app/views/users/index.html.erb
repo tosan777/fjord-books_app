@@ -1,0 +1,16 @@
+<%= link_to t('users.defaults.sign_out'), destroy_user_session_path, method: :delete %>
+<%= link_to t('users.defaults.user_list'), users_path %>
+<%= link_to t('users.defaults.profile'), user_path(current_user.id) %>
+<h1><%= t('users.defaults.user_list') %></h1>
+
+<% @user.each do |user| %>
+  <ul class="user-list">
+    <%= link_to user_path(user.id) do %>
+      <li class="user-item">
+        <%= user.email %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= paginate @user %>
