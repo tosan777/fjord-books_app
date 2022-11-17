@@ -2,9 +2,9 @@
   <%= f.hidden_field :commentable_id,    value: commentable.id %>
   <%= f.hidden_field :commentable_type,  value: commentable.class.name %>
 
-  <div class="field">
+  <div class="form-field">
     <%= f.label :comment %>
-    <%= f.text_area :comment, required: true %>
+    <%= f.text_area :comment, required: true, class: "form-comment" %>
   </div>
 
   <div class="action">
