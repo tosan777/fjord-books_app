@@ -14,13 +14,15 @@ class UsersController < ApplicationController
 
   # フォローワー一覧
   def follows
-    @users = user.followings.page(params[:page])
+    @users = @user.followings.page(params[:page])
   end
 
   # フォロー一覧
   def followers
-    @users = user.followers.page(params[:page])
+    @users = @user.followers.page(params[:page])
   end
+
+  private
 
   def set_user
     @user = User.find(params[:id])
