@@ -15,6 +15,7 @@
 
       <div class="field">
         <%= link_to '削除', polymorphic_path([commentable, comment]), method: :delete %>
+        <%= link_to '編集', edit_polymorphic_path([commentable, comment]) %>
       </div>
 
     </div>

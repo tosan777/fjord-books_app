@@ -11,6 +11,8 @@ ja:
       report:
         title: タイトル
         text: テキスト
+      comment:
+        comment: コメント
   date:
     abbr_day_names:
     - 日
@@ -263,4 +265,3 @@ ja:
     default:
       title: "%{title}一覧ページ"
       new_report: 日報作成
-
