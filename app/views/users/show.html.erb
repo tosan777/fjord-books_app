@@ -43,10 +43,10 @@
 
 <div class="d-flex">
   <%= link_to follows_user_path(@user) do %>
-    <h6>フォロー<%= @followings.count %></h6>
+    <p>フォロー<%= @followings.count %></p>
   <% end %>
   <%= link_to followers_user_path(@user) do %>
-    <h6>フォロワー<%= @followers.count %></h6>
+    <p>フォロワー<%= @followers.count %></p>
   <% end %>
 </div>
 

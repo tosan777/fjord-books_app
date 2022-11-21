@@ -1,9 +1,7 @@
 <% if users.exists? %>
   <% users.each do |user| %>
     <div class="one-post card w-100">
-      <%= link_to user_path(user) do %>
-        <p class="caption h4"><%= user.name %></p>
-      <% end %>
+      <%= link_to user.name, user_path(user), class: "caption h4" %>
     </div>
   <% end %>
 <% else %>
