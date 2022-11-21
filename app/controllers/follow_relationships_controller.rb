@@ -6,7 +6,7 @@ class FollowRelationshipsController < ApplicationController
   def create
     if User.exists?(id: params[:user_id])
       @other_user = User.find(params[:user_id])
-      current_user.follow(params[:user_id])
+      current_user.follow(@other_user)
       redirect_to @other_user
     else
       flash[:alert] = "このユーザーは存在しません。"
@@ -18,7 +18,7 @@ class FollowRelationshipsController < ApplicationController
   def destroy
     if User.exists?(id: params[:user_id])
       @other_user = User.find(params[:user_id])
-      current_user.unfollow(params[:user_id])
+      current_user.unfollow(@other_user)
       redirect_to @other_user
     else
       flash[:alert] = "このユーザーは存在しません。"

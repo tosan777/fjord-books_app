@@ -21,13 +21,13 @@ class User < ApplicationRecord
   has_many :followings, through: :follower, source: :followed
 
   # ユーザーをフォローした時の処理
-  def follow(user_id)
-    follower.find_or_create_by(followed_id: user_id)
+  def follow(user)
+    follower.find_or_create_by(followed_id: user.id)
   end
 
   # ユーザーのフォローを外した時の処理
-  def unfollow(user_id)
-    follower.find_by(followed_id: user_id)&.destroy
+  def unfollow(user)
+    follower.find_by(followed_id: user.id)&.destroy
   end
 
   # フォローしているか判定
