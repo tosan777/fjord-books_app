@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class FollowRelationship < ApplicationRecord
-  validates :follower
   validates :followed, uniqueness: { scope: [:follower_id, :followed_id] }
 
   belongs_to :follower, class_name: 'User'
