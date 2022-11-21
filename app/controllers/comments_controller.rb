@@ -9,10 +9,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    if comment_params[:commentable_type].constantize.exists?(comment_params[:commentable_id])
-      @comment = Comment.new(comment_params)
-      @comment.user_id = current_user.id
-      @comment.save
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save
       flash[:success] = 'コメントを投稿しました。'
       redirect_to @comment.commentable
     else
