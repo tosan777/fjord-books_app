@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :comment_params, only: %i[create update ]
+  before_action :comment_params, only: %i[create update]
   before_action :set_comment, only: %i[edit update destroy]
 
   def edit
@@ -21,15 +21,22 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
+    if @comment.user_id == current_user.id
+      @comment.update(comment_params)
       flash[:success] = 'コメントの編集に成功しました。'
       redirect_to @comment.commentable
+    else
+      render :edit
     end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to @comment.commentable
+    if @comment.user_id == current_user.id
+      @comment.destroy
+      redirect_to @comment.commentable
+    else
+      redirect_to users_path
+    end
   end
 
   private

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[edit show]
+  before_action :set_report, only: %i[edit show update destroy]
 
   def index
     @reports = Report.order(:id).page(params[:page])
@@ -29,17 +29,22 @@ class ReportsController < ApplicationController
   end
 
   def update
-    @report = Report.find(params[:id])
-    return unless @report.update(report_params)
-
-    flash[:success] = '日報の編集に成功しました。'
-    redirect_to report_path(@report)
+    if @report.update(report_params)
+      flash[:success] = '日報の編集に成功しました。'
+      redirect_to report_path(@report)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    Report.find(params[:id]).destroy
-    flash[:success] = '日報を削除しました。'
-    redirect_to reports_path
+    if @report.user_id == current_user.id
+      @report.destroy
+      flash[:success] = '日報を削除しました。'
+      redirect_to reports_path
+    else
+      redirect_to reports_path
+    end
   end
 
   private
