@@ -38,13 +38,11 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    if @report.user_id == current_user.id
-      @report.destroy
-      flash[:success] = '日報を削除しました。'
-      redirect_to reports_path
-    else
-      redirect_to reports_path
-    end
+    return unless @report.user_id == current_user.id
+
+    @report.destroy
+    flash[:success] = '日報を削除しました。'
+    redirect_to reports_path
   end
 
   private
