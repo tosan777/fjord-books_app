@@ -1,7 +1,7 @@
 class CreateReports < ActiveRecord::Migration[6.1]
   def change
     create_table :reports do |t|
-      t.integer :user_id
+      t.references :user, null: false, foregin_key: :true
       t.string :title
       t.text :text
 
