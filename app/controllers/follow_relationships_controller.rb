@@ -3,8 +3,7 @@
 class FollowRelationshipsController < ApplicationController
   # フォローするとき
   def create
-    if User.exists?(id: params[:user_id])
-      @other_user = User.find(params[:user_id])
+    if @other_user = User.find_by(id: params[:user_id])
       current_user.follow(@other_user)
       redirect_to @other_user
     else
@@ -15,8 +14,7 @@ class FollowRelationshipsController < ApplicationController
 
   # フォロー外すとき
   def destroy
-    if User.exists?(id: params[:user_id])
-      @other_user = User.find(params[:user_id])
+    if @other_user = User.find_by(id: params[:user_id])
       current_user.unfollow(@other_user)
       redirect_to @other_user
     else
