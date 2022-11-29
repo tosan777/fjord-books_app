@@ -1,4 +1,12 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
+<%# フォローしていたらフォロー外すボタン、フォローしていなかったらフォローするボタンの表示 %>
+<% if @user != current_user %>
+  <% if current_user.following?(@user) %>
+    <%= link_to 'フォロー外す', user_follow_relationships_path(@user.id), method: :delete, class: "btn-sm btn-danger" %>
+  <% else %>
+    <%= link_to 'フォローする', user_follow_relationships_path(@user.id), method: :post, class:"btn-sm btn-success" %>
+  <% end %>
+<% end %>
 
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
@@ -32,6 +40,15 @@
     <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150]) %>
   <% end %>
 </p>
+
+<div class="d-flex">
+  <%= link_to follows_user_path(@user) do %>
+    <p>フォロー<%= @followings.count %></p>
+  <% end %>
+  <%= link_to followers_user_path(@user) do %>
+    <p>フォロワー<%= @followers.count %></p>
+  <% end %>
+</div>
 
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
