@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
       @comment.destroy
       redirect_to @comment.commentable
     else
-      redirect_to users_path
+      redirect_to @comment.commentable
     end
   end
 
