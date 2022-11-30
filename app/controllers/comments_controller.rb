@@ -9,14 +9,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    # モデルの存在確認をする。
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = 'コメントを投稿しました。'
       redirect_to @comment.commentable
     else
-      flash[:alert] = 'この日報は存在しません。'
-      redirect_to users_path
+      flash[:alert] = 'この投稿は削除されました。'
+      redirect_to controller: "#{comment_params[:commentable_type].downcase}".pluralize.to_sym, action: :index
     end
   end
 
