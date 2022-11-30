@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  def setup
+  setup do
     @one = reports(:one)
     @two = reports(:two)
     @yuji = users(:yuji)
