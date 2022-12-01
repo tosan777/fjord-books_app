@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "application_system_test_case"
+require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
@@ -31,7 +31,7 @@ class ReportsTest < ApplicationSystemTestCase
   test 'destroying a Report' do
     visit reports_path
     accept_confirm do
-      click_on "削除"
+      click_on '削除'
     end
     assert_text '日報が削除されました。'
   end
