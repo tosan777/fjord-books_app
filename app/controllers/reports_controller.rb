@@ -29,20 +29,21 @@ class ReportsController < ApplicationController
   end
 
   def update
+    render :error, status: :forbidden and return unless @report.user_id == current_user.id
+
     if @report.update(report_params)
       flash[:success] = '日報の編集に成功しました。'
       redirect_to report_path(@report)
-    else
-      render :edit
     end
   end
 
   def destroy
-    return unless @report.user_id == current_user.id
+    render :error, status: :forbidden and return unless @report.user_id == current_user.id
 
-    @report.destroy
-    flash[:success] = '日報を削除しました。'
-    redirect_to reports_path
+    if @report.destroy
+      flash[:success] = '日報を削除しました。'
+      redirect_to reports_path
+    end
   end
 
   private
