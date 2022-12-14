@@ -14,9 +14,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'create a Report' do
     click_link '日報'
-    visit reports_path
     click_link '新規作成'
-    visit new_report_path
     fill_in 'タイトル', with: 'title'
     fill_in '内容', with: 'content'
     click_button '登録'
@@ -25,9 +23,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'updating a Report' do
     click_link '日報'
-    visit reports_path
     click_link '編集'
-    visit edit_report_path(@report)
     fill_in 'タイトル', with: '初めての日報'
     fill_in '内容', with: '楽しかったです。'
     click_button '更新する'
@@ -36,7 +32,6 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     click_link '日報'
-    visit reports_path
     accept_confirm do
       click_link '削除'
     end

@@ -11,11 +11,11 @@ class ReportTest < ActiveSupport::TestCase
   end
 
   test 'editable?' do
-    assert_equal @yuji,   @yuji_report.user
-    assert_equal @megumi, @megumi_report.user
+    assert @yuji_report.editable?(@yuji)
+    assert_not @yuji_report.editable?(@megumi)
   end
 
   test 'created_on' do
-    assert_equal 'Wed, 30 Nov 2022'.to_date, @yuji_report.created_at.to_date
+    assert_equal 'Wed, 30 Nov 2022'.to_date, @yuji_report.created_on
   end
 end
