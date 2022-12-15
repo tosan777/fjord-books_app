@@ -1,0 +1,30 @@
+.comment {
+  &-area {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #F0F0F0;
+  }
+  &-field {
+    margin-bottom: 5px;
+    &:nth-child(2) {
+      width: 700px;
+    }
+  }
+  &-title {
+    font-size: 16px;
+    margin-right: 15px;
+  }
+  &-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+}
+
+.form {
+  &-comment {
+    font-size: 14px;
+    width: 400px;
+    min-height: 150px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+}

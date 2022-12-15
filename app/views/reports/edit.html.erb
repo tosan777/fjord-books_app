@@ -1,0 +1,19 @@
+<h1><%= t('reports.default.title', title: "日報編集") %></h1>
+
+<%= form_with model: @report, method: :patch, local: true do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

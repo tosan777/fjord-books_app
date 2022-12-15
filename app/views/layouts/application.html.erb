@@ -20,6 +20,9 @@
           <li>
             <%= link_to User.model_name.human, users_path %>
           </li>
+          <li>
+            <%= link_to Report.model_name.human, reports_path %>
+          </li>
         </ul>
         <div class="title"><%= t('.sign_in_as', email: current_user.email) %></div>
         <ul>
@@ -27,17 +30,26 @@
             <%= link_to t('devise.registrations.edit.title'), edit_user_registration_path %>
           </li>
           <li>
+            <%= link_to t('reports.default.new_report'), new_report_path %>
+          </li>
+          <li>
             <%= link_to t('views.common.sign_out'), destroy_user_session_path, method: :delete %>
           </li>
         </ul>
       </div>
     <% end %>
+
+    <div class="success">
+      <%= flash[:success] %>
+    </div>
+
     <% if notice.present? %>
       <p id="notice"><%= notice %></p>
     <% end %>
     <% if alert.present? %>
       <p id="alert"><%= alert %></p>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

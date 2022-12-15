@@ -1,0 +1,17 @@
+<h1><%= t('reports.default.title', title: "日報") %></h1>
+
+<% if @reports.present? %>
+  <table>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.title %></td>
+        <td><%= link_to '日報詳細', report_path(report) %></td>
+        <% if report.user_id == current_user.id %>
+          <td><%= link_to '日報を削除', report_path(report), method: :delete, data: { confirm: "日報を削除してもよろしいですか？" } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <strong>日報はありません。</strong>
+<% end %>
