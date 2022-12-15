@@ -1,11 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
+yuji_report:
+  user: yuji
   title: MyString
   content: MyText
+  created_at: Wed 30 Nov 2022 14:31:42.866371000 JST +09:00
 
-two:
-  user: two
+megumi_report:
+  user: megumi
   title: MyString
   content: MyText
